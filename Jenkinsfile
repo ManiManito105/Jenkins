@@ -19,8 +19,10 @@ pipeline {
         stage('Docker Build & Push') {
             steps {
                 script {
-                    docker.build("registry:5000/flights-hello-world:1.0")
-                          .push()
+                    def app = docker.build("172.31.10.62:5000/proyecto-gradle:latest", "--build-arg JAR_FILE=build/libs/*.jar .")
+                    docker.withRegistry("http://172.31.10.62:5000", "registry-credentials-id") {
+                        app.push()
+                    }
                 }
             }
         }
