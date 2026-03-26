@@ -12,6 +12,8 @@ class HelloWorldApplicationTests {
         assertThat(true).isTrue();
     }
 
+    // Cambio para git
+
     @Test
     void helloWorldEndpointShouldReturnMessage() {
         String message = "Hello World from Spring Boot!";
