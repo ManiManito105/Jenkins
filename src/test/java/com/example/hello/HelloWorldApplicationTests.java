@@ -12,7 +12,8 @@ class HelloWorldApplicationTests {
         assertThat(true).isTrue();
     }
 
-    // Cambio para git
+    // Cambio para git 2
+    // Por si acaso
 
     @Test
     void helloWorldEndpointShouldReturnMessage() {
