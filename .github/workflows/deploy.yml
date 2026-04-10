@@ -1,0 +1,28 @@
+on:
+  pull_request:
+    branches:
+      - master    # producción
+      - develop   # desarrollo
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Deploy to AWS
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: 172.31.10.62
+          username: ubuntu
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            cd /opt/myproject
+            if [ "${{ github.ref }}" == "refs/heads/master" ]; then
+              echo "Deploying to PRODUCTION..."
+              docker compose -f docker-compose.prod.yml up -d --build
+            else
+              echo "Deploying to DEVELOPMENT..."
+              docker compose -f docker-compose.dev.yml up -d --build
+            fi
