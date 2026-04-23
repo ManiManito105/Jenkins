@@ -17,6 +17,7 @@ jobs:
           host: 172.31.10.62
           username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
+          port: 22
           script: |
             cd /opt/myproject
             if [ "${{ github.ref }}" == "refs/heads/master" ]; then
