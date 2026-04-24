@@ -11,11 +11,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Test deploy locally
+      - name: Deploy to AWS
         run: |
-          echo "Conexión exitosa en el runner"
-          pwd
-          ls -la
-          # Aquí puedes poner directamente tus comandos de despliegue
-          # por ejemplo:
-          # docker compose -f docker-compose.dev.yml up -d --build
+            cd /opt/myproject
+            if [ "${{ github.ref }}" == "refs/heads/master" ]; then
+              echo "Deploying to PRODUCTION..."
+              docker compose -f docker-compose.prod.yml up -d --build
+            else
+              echo "Deploying to DEVELOPMENT..."
+              docker compose -f docker-compose.dev.yml up -d --build
+            fi
