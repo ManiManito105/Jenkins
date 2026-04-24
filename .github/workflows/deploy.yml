@@ -16,7 +16,7 @@ jobs:
         with:
           host: 172.31.10.62
           username: ubuntu
-          key: ${{ secrets.AWS_SSH_KEY }}
+          key: ${{secrets.AWS_SSH_KEY}}
           port: 22
           script: |
             echo "Conexión exitosa"
