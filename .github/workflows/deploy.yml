@@ -21,3 +21,5 @@ jobs:
               echo "Deploying to DEVELOPMENT..."
               docker-compose -f docker-compose.dev.yml up -d --build
             fi
+
+            # Verificar que el contenedor esté corriendo
