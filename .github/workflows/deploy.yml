@@ -11,12 +11,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Deploy to AWS
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: 172.31.10.62
-          username: ubuntu
-          key: ${{secrets.AWS_SSH_KEY}}
-          port: 22
-          script: |
-            echo "Conexión exitosa"
+      - name: Test deploy locally
+        run: |
+          echo "Conexión exitosa en el runner"
+          pwd
+          ls -la
+          # Aquí puedes poner directamente tus comandos de despliegue
+          # por ejemplo:
+          # docker compose -f docker-compose.dev.yml up -d --build
