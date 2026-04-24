@@ -22,3 +22,4 @@ jobs:
               docker-compose -f docker-compose.dev.yml up -d --build
             fi
 # Prueba de despliegue automático a AWS usando GitHub Actions. Se ejecuta en un runner self-hosted que tiene acceso a los comandos de Docker. Según la rama (master o develop), se despliega la aplicación usando el archivo docker-compose correspondiente.
+# Asegúrate de que el runner tenga los permisos necesarios para ejecutar Docker y que la ruta /opt/myproject sea correcta para tu entorno.
