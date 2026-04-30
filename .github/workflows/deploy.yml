@@ -24,4 +24,4 @@ jobs:
               docker-compose -f docker-compose.dev.yml up -d --build
             fi
 
-# Nota: Asegúrate de que el runner de GitHub Actions tenga acceso a tu servidor AWS y que Docker esté instalado y configurado correctamente.
+# Probando hacia main
