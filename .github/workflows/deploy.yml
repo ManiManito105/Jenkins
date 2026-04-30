@@ -16,7 +16,8 @@ jobs:
       - name: Deploy to AWS
         run: |
             cd /opt/myproject
-            if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "Branch: $GITHUB_REF"
+            if [ "$GITHUB_REF" = "refs/heads/main" ]; then
               echo "Deploying to PRODUCTION..."
               docker-compose -f docker-compose.prod.yml up -d --build
             else
