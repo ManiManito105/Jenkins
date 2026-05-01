@@ -28,5 +28,3 @@ jobs:
               echo "Deploying to DEVELOPMENT..."
               docker-compose -f docker-compose.dev.yml up -d --build
             fi
-
-# Probando hacia main
