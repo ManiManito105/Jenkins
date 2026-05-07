@@ -15,8 +15,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # Aqui deberia estar ssh pero no funciona, asi que lo hago manualmente
-
       - name: Deploy to AWS
         run: |
             cd /opt/myproject
@@ -28,3 +26,4 @@ jobs:
               echo "Deploying to DEVELOPMENT..."
               docker-compose -f docker-compose.dev.yml up -d --build
             fi
+
